@@ -1,0 +1,274 @@
+//PUNTOS REALIZADOS DE MOMENTO, POO1_WORKSHOP
+import java.util.List;
+
+public class Workshop {
+    public static void main(String[] args) {
+
+    }
+    //PUNTO (1)////////////////////////////////////////////////////////////////////////////// LISTO
+    // Método que suma dos números enteros
+    public int sumarDosNumeros(int a, int b) {
+        return a+b;
+    }
+
+    //PUNTO (2)////////////////////////////////////////////////////////////////////////////// LISTO
+    //Método que encuentra el mayor de tres números enteros
+    public int mayorDeTresNumeros(int a, int b, int c) {
+        int mayor;
+        if (a >= b && a >= c) {
+            mayor = a;
+        }
+        else if (b >= a && b >= c) {
+            mayor = b;
+        }
+        else {
+            mayor = c;
+        }
+        return mayor;
+    }
+
+    //PUNTO (3)////////////////////////////////////////////////////////////////////////////// LISTO
+    // Método que retorna la tabla de multiplicar de un número
+    public int[] tablaMultiplicar(int numero, int limite) {
+        if (limite <= 0) {
+            return new int[0];
+        }
+        int[] tabla = new int[limite];
+        for (int i = 0; i < limite; i++) {
+            tabla[i] = numero * (i + 1);
+        }
+        return tabla;
+    }
+
+    //PUNTO (4)////////////////////////////////////////////////////////////////////////////// LISTO
+    // Método que calcula el factorial de un número entero
+    public int factorial(int n) {
+        if(n == 0 || n == 1) return 1;
+        return n * factorial(n-1);
+    }
+
+    //PUNTO (5)////////////////////////////////////////////////////////////////////////////// LISTO
+    public boolean esPrimo(int numero) {
+        if (numero <= 1) {
+            return false;
+        }
+        if (numero == 2) {
+            return true;
+        }
+        if (numero % 2 == 0) {
+            return false;
+        }
+        for (int i = 3; i < numero; i += 2) {
+            if (numero % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    //PUNTO (6)////////////////////////////////////////////////////////////////////////////// FALTA(NI IDEA)
+    // Método que genera una serie de Fibonacci
+    public int[] serieFibonacci(int n) {
+        // TODO: Implementar el método para generar la serie de Fibonacci hasta el número n.
+        // Ejemplo: Si n = 5, el resultado debería ser [0, 1, 1, 2, 3].
+        // Lanzar IllegalArgumentException si n es negativo.
+        return new int[0];
+    }
+    //PUNTO (7)////////////////////////////////////////////////////////////////////////////// LISTO
+    // Método que suma todos los elementos de un arreglo
+    public int sumaElementos(int[] arreglo) {
+        int suma = 0;
+        for (int elemento : arreglo) {
+            suma = suma + elemento;
+        }
+        return suma;
+    }
+    //PUNTO (8)////////////////////////////////////////////////////////////////////////////// LISTO
+    // Método que calcula el promedio de los elementos de un arreglo
+    public double promedioElementos(int[] arreglo) {
+        int suma = 0;
+        for (int elemento : arreglo) {
+            suma += elemento;
+        }
+        double promedio = (double) suma / arreglo.length;
+        return promedio;
+    }
+    //PUNTO (9)////////////////////////////////////////////////////////////////////////////// LISTO
+    // Método que encuentra el elemento Mayor ren un arreglo
+    public int encontrarElementoMayor(int[] arreglo) {
+        int elementoMayor = arreglo[0];
+        for (int i = 1; i < arreglo.length; i++) {
+            if (arreglo[i] > elementoMayor) {
+                elementoMayor = arreglo[i];
+            }
+        }
+        return elementoMayor;
+    }
+    //PUNTO (10)////////////////////////////////////////////////////////////////////////////// LISTO
+    // Método que encuentra el elemento menor en un arreglo
+    public int encontrarElementoMenor(int[] arreglo) {
+        int elementoMenor = arreglo[0];
+        for (int i = 1; i < arreglo.length; i++) {
+            if (arreglo[i] < elementoMenor) {
+                elementoMenor = arreglo[i];
+            }
+        }
+        return elementoMenor;
+    }
+    //PUNTO (11)////////////////////////////////////////////////////////////////////////////// LISTO
+    // Método que busca un elemento en un arreglo
+    public boolean buscarElemento(int[] arreglo, int elemento) {
+        for(int i = 0; i < arreglo.length;i++) {
+            if(elemento == arreglo[i]) return true;
+        }
+        return false;
+    }
+    //PUNTO (12)////////////////////////////////////////////////////////////////////////////// LISTO
+    // Método que invierte un arreglo
+    public int[] invertirArreglo(int[] arreglo) {
+            int[] J = new int[arreglo.length];
+            int O = 0;
+            int I = arreglo.length - 1;
+            while (O < arreglo.length) {
+                J [I] = arreglo[O];
+                O++;
+                I--;
+            }
+            return J;
+        }
+    //PUNTO (13)////////////////////////////////////////////////////////////////////////////// LISTO
+    // TODO: ordenar un arreglo en orden ascendente.
+    public int[] ordenarArreglo(int[] arreglo) {
+        int n = arreglo.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - 1 - i; j++) {
+                if (arreglo[j] > arreglo[j + 1]) {
+                    int P = arreglo[j];
+                    arreglo[j] = arreglo[j + 1];
+                    arreglo[j + 1] = P;
+                }
+            }
+        }
+        return arreglo;
+    }
+
+    //PUNTO (14)////////////////////////////////////////////////////////////////////////////// LISTO
+    // Método que elimina los duplicados de un arreglo
+    public int[] eliminarDuplicados(int[] arreglo) {
+        int a = arreglo.length;
+        int b = 0;
+        for (int i = 0; i < a; i++) {
+            int c = 0;
+            for (int j = 0; j < i; j++) {
+                if (arreglo[i] == arreglo[j]) {
+                    c = 1;
+                }
+            }
+            if (c == 0) {
+                b++;
+            }
+        }
+        int[] f = new int[b];
+        int g = 0;
+        for (int i = 0; i < a; i++) {
+            int c = 0;
+            for (int j = 0; j < i; j++) {
+                if (arreglo[i] == arreglo[j]) {
+                    c = 1;
+                }
+            }
+            if (c == 0) {
+                f[g++] = arreglo[i];
+            }
+        }
+        return f;
+    }
+    //PUNTO (15)////////////////////////////////////////////////////////////////////////////// LISTO
+    // Método que combina dos arreglos en uno solo
+    public int[] combinarArreglos(int[] arreglo1, int[] arreglo2) {
+        int n1 = arreglo1.length;
+        int n2 = arreglo2.length;
+        int T = n1+n2;
+        int[] r = new int[T];
+        for(int i = 0; i < n1; i++) {
+            r[i] = arreglo1[i];
+        }
+        for(int i = 0; i < n2; i++) {
+            r[n1+i] = arreglo2[i];
+        }
+        return r;
+    }
+    //PUNTO (16)////////////////////////////////////////////////////////////////////////////// LISTO
+    // Método que rota un arreglo n posiciones
+    public int[] rotarArreglo(int[] arreglo, int posiciones) {
+        int n = arreglo.length;
+        int[] resultado = new int[n];
+        if (posiciones >= 0) {
+            int k = posiciones % n;
+            if (k < 0) k += n;
+            for (int i = 0; i < k; i++) {
+                resultado[i] = arreglo[n - k + i];
+            }
+            for (int i = 0; i < n - k; i++) {
+                resultado[k + i] = arreglo[i];
+            }
+        } else {
+            int k_left = -posiciones;
+            int k_left_eff = k_left % n;
+            for (int i = 0; i < n - k_left_eff; i++) {
+                resultado[i] = arreglo[k_left_eff + i];
+            }
+            for (int i = 0; i < k_left_eff; i++) {
+                resultado[n - k_left_eff + i] = arreglo[i];
+            }
+        }
+        return resultado;
+    }
+    //PUNTO (17)////////////////////////////////////////////////////////////////////////////// LISTO
+    // Método que cuenta los caracteres en una cadena
+    public int contarCaracteres(String cadena) {
+        int c = 0;
+        for (int i = 0; i < cadena.length(); i++) {
+            c++;
+        }
+        return c;
+    }
+    //PUNTO (18)////////////////////////////////////////////////////////////////////////////// LISTO
+    // Método que invierte una cadena
+    public String invertirCadena(String cadena) {
+        int n = cadena.length();
+        char[] resultadoChars = new char[n];
+        int resultadoIndex = 0;
+        for (int i = n - 1; i >= 0; i--) {
+            resultadoChars[resultadoIndex++] = cadena.charAt(i);
+        }
+        return new String(resultadoChars);
+    }
+    //PUNTO (19)////////////////////////////////////////////////////////////////////////////// FALTA(NI IDEA)
+    // Método que verifica si una cadena es un palíndromo
+    public boolean esPalindromo(String cadena) {
+        // TODO: Implementar el método para verificar si una cadena es un palíndromo.
+        // Ejemplo: Si cadena = "madam", el resultado debería ser true.
+        return false;
+    }
+    //PUNTO (20)////////////////////////////////////////////////////////////////////////////// FALTA
+    // Método que cuenta el número de palabras en una cadena
+    public int contarPalabras(String cadena) {
+        int n = cadena.length();
+        int wordCount = 0;
+        int inWord = 0;
+
+        for (int i = 0; i < n; i++) {
+            int codePoint = cadena.codePointAt(i);
+
+            if (codePoint == 32) {
+                inWord = 0;
+            } else {
+                if (inWord == 0) {
+                    wordCount++;
+                    inWord = 1;
+                }
+            }
+        }
+
+        return wordCount;
+    }
